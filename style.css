@@ -1,58 +1,107 @@
+/* 全局样式 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #f0f2f5);
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    min-height: 100vh;
 }
 
+/* 主容器 */
 .container {
-    background-color: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 400px;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 450px;
+    max-width: 90%;
 }
 
-h1, h2 {
+/* 标题 */
+h1 {
     text-align: center;
+    color: #00796b;
 }
 
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* 输入区 */
 .input-section {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 #taskInput {
     flex: 1;
-    padding: 8px;
+    padding: 10px;
     font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 #addTaskBtn {
-    padding: 8px 12px;
-    margin-left: 10px;
+    padding: 10px 15px;
     font-size: 14px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
+#addTaskBtn:hover {
+    background-color: #004d40;
+}
+
+/* 任务列表 */
 .task-list-section ul {
     list-style: none;
     padding: 0;
 }
 
 .task-list-section li {
-    padding: 8px;
-    margin-bottom: 5px;
-    background-color: #e2f0ff;
-    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #e0f2f1;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s;
 }
 
+.task-list-section li:hover {
+    background-color: #b2dfdb;
+}
+
+/* 完成按钮 */
 .complete-btn {
     cursor: pointer;
-    color: green;
+    color: white;
+    background-color: #388e3c;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.complete-btn:hover {
+    background-color: #1b5e20;
+}
+
+/* 任务统计 */
+.task-summary {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+    color: #00796b;
 }
