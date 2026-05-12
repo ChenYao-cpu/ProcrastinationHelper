@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖延症拆解助手</title>
+    <link rel="stylesheet" href="font_5175847_ddmqt6ur2c4/iconfont.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><i class="iconfont icon-dengpao"></i> 大学生拖延症拆解助手</h1>
+        <p class="subtitle">把大任务拆成每日待办，提高学习效率</p>
+    </header>
+
+    <!-- 统计面板 -->
+    <div class="stats-panel">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="iconfont icon-renwu1"></i></div>
+            <div class="stat-info">
+                <div class="stat-value" id="totalTasks">0</div>
+                <div class="stat-label">总任务</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="iconfont icon-shichang"></i></div>
+            <div class="stat-info">
+                <div class="stat-value" id="totalTime">0</div>
+                <div class="stat-label">总时长(分钟)</div>
+            </div>
+        </div>
+        <div class="stat-card completed-card">
+            <div class="stat-icon"><i class="iconfont icon-trues"></i></div>
+            <div class="stat-info">
+                <div class="stat-value" id="completedTime">0</div>
+                <div class="stat-label">已完成(分钟)</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="iconfont icon-daiwancheng"></i></div>
+            <div class="stat-info">
+                <div class="stat-value" id="progress">0%</div>
+                <div class="stat-label">完成进度</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 输入区域 -->
+    <div class="input-section">
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="输入任务，例如：完成数据库课设">
+            <select id="categorySelect">
+                <option value="">自动分类</option>
+                <option value="programming"><i class="iconfont icon-a-bijibenbiji"></i> 编程</option>
+                <option value="english"> 英语</option>
+                <option value="math">📐 数学</option>
+                <option value="lab">🔬 实验</option>
+                <option value="other"> 其他</option>
+            </select>
+            <button id="addTaskBtn"><i class="iconfont icon-dengpao"></i> 添加任务</button>
+        </div>
+        <div class="quick-tips">
+            <span class="tip-label"><i class="iconfont icon-dengpao"></i> 快速添加：</span>
+            <button class="quick-btn" onclick="quickAdd('数据库课设：需求分析、建表、写接口、测试')">数据库课设</button>
+            <button class="quick-btn" onclick="quickAdd('英语论文：查资料、写初稿、修改、提交')">英语论文</button>
+            <button class="quick-btn" onclick="quickAdd('复习操作系统：进程管理、内存管理、做真题')">操作系统复习</button>
+        </div>
+    </div>
+
+    <!-- 筛选按钮 -->
+    <div class="filter-section">
+        <button class="filter-btn active" data-filter="active"><i class="iconfont icon-daiwancheng"></i> 待完成</button>
+        <button class="filter-btn" data-filter="completed"><i class="iconfont icon-trues"></i> 已完成</button>
+        <button class="filter-btn" data-filter="all"><i class="iconfont icon-renwu"></i> 全部任务</button>
+    </div>
+
+    <!-- 任务列表 -->
+    <div class="task-list-section">
+        <div class="task-list-header">
+            <h2><i class="iconfont icon-renwu"></i> 今日待办</h2>
+            <button class="clear-btn" id="clearCompletedBtn"><i class="iconfont icon-qingkong"></i> 清空已完成</button>
+        </div>
+        <ul id="taskList"></ul>
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon"><i class="iconfont icon-a-bijibenbiji"></i></div>
+            <p>暂无任务，添加一个开始学习吧！</p>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑弹窗 -->
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <h3><i class="iconfont icon-a-bijibenbiji"></i> 编辑任务</h3>
+        <input type="text" id="editTaskName" placeholder="任务名称">
+        <input type="number" id="editTaskTime" placeholder="预计时长(分钟)">
+        <div class="modal-actions">
+            <button class="btn-cancel" onclick="closeModal()">取消</button>
+            <button class="btn-save" onclick="saveEdit()">保存</button>
+        </div>
+    </div>
+</div>
+
+<!-- 庆祝动画 -->
+<div class="celebration" id="celebration"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
