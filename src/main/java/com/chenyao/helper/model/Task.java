@@ -7,6 +7,7 @@ public class Task {
     private int priority;
     private boolean completed;
     private String category;
+    private String deadline;      // ← 添加
     private String createdAt;
     
     public Task() {}
@@ -21,16 +22,25 @@ public class Task {
     
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+    
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    
     public int getTime() { return time; }
     public void setTime(int time) { this.time = time; }
+    
     public int getPriority() { return priority; }
     public void setPriority(int priority) { this.priority = priority; }
+    
     public boolean isCompleted() { return completed; }
     public void setCompleted(boolean completed) { this.completed = completed; }
+    
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
+    
+    public String getDeadline() { return deadline; }
+    public void setDeadline(String deadline) { this.deadline = deadline; }
+    
     public String getCreatedAt() { return createdAt; }
     public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 }
